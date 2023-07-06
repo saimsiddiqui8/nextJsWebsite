@@ -31,7 +31,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+    
         <div id={styles.hero}>
           <Container className='w-75 py-5'>
             <Row className='py-5 mb-5'>
@@ -42,7 +42,7 @@ export default function Home() {
               </Col>
               <Col lg={6} md={6} sm={12} className='text-center'>
                 <Row className='pb-5 text-end'>
-                  <Form className='container w-75 px-4 ' id='form' onSubmit={handleSubmit}>
+                  <Form className='w-75 px-4 opacity-75' id='form' onSubmit={handleSubmit}>
                     <h3 className='text-center pt-4 pb-2 text-light fw-bold'>REGISTER YOUR INTEREST</h3>
                     <Form.Group className="mb-3 pt-3" controlId="formBasicText">
                       <Form.Control className="text-light input" name="name" required type="text" placeholder="Name" />
@@ -65,8 +65,8 @@ export default function Home() {
             </Row>
           </Container>
         </div>
-
-        <section className='container w-75 text-white text-center'>
+        <main id='mainHomeWrapper' className='container w-75'>
+        <section className=' text-white text-center'>
           <div className='row overflow-hidden'>
 
             <div className='col-lg-3 col-md-6 col-sm-6 mt-4 shadow-sm'>
@@ -116,7 +116,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className='container w-75'>
+        <section className=''>
           <div className='mt-5'>
             <h2 className={styles.offPlanProjects}>OFF PLAN PROJECTS</h2>
             <p className={styles.offPlanProjectsParagraph}>
@@ -126,7 +126,7 @@ export default function Home() {
 
           <div>
 
-            <div className='row'>
+            <div className='row '>
 
               <div className="col-lg-4 col-md-4 col-sm-12">
 
@@ -144,7 +144,7 @@ export default function Home() {
               <div className="col-lg-4 col-md-4 col-sm-12">
 
                 <Card className='rounded shadow mt-3'>
-                  <Card.Img variant="top" src="/images/card1.webp" />
+                  <Card.Img variant="top" src="/images/card2.webp" />
                   <Card.Body className='text-center'>
                     <Card.Title>Rivana at The Valley </Card.Title>
                     <Card.Text>
@@ -157,7 +157,7 @@ export default function Home() {
               <div className="col-lg-4 col-md-4 col-sm-12">
 
                 <Card className='rounded shadow mt-3'>
-                  <Card.Img variant="top" src="/images/card1.webp" />
+                  <Card.Img variant="top" src="/images/card3.webp" />
                   <Card.Body className='text-center'>
                     <Card.Title>Rivana at The Valley </Card.Title>
                     <Card.Text>
@@ -172,7 +172,7 @@ export default function Home() {
             <div className='row'>
               <div className="col-lg-4 col-md-4 col-sm-12">
                 <Card className='rounded shadow mt-3'>
-                  <Card.Img variant="top" src="/images/card1.webp" />
+                  <Card.Img variant="top" src="/images/card4.webp" />
                   <Card.Body className='text-center'>
                     <Card.Title>Rivana at The Valley </Card.Title>
                     <Card.Text>
@@ -183,7 +183,7 @@ export default function Home() {
               </div>
               <div className="col-lg-4 col-md-4 col-sm-12">
                 <Card className='rounded shadow mt-3'>
-                  <Card.Img variant="top" src="/images/card1.webp" />
+                  <Card.Img variant="top" src="/images/card5.webp" />
                   <Card.Body className='text-center'>
                     <Card.Title>Rivana at The Valley </Card.Title>
                     <Card.Text>
@@ -194,7 +194,7 @@ export default function Home() {
               </div>
               <div className="col-lg-4 col-md-4 col-sm-12">
                 <Card className='rounded shadow mt-3'>
-                  <Card.Img variant="top" src="/images/card1.webp" />
+                  <Card.Img variant="top" src="/images/card6.webp" />
                   <Card.Body className='text-center'>
                     <Card.Title>Rivana at The Valley </Card.Title>
                     <Card.Text>
@@ -218,7 +218,7 @@ export default function Home() {
             <div className="col-lg-4 col-md-4 col-sm-12">
 
               <Card className='rounded shadow mt-3'>
-                <Card.Img variant="top" src="/images/card1.webp" />
+                <Card.Img variant="top" src="/images/card7.webp" />
                 <Card.Body className='text-center'>
                   <Card.Title>Rivana at The Valley </Card.Title>
                   <Card.Text>
@@ -231,7 +231,7 @@ export default function Home() {
             <div className="col-lg-4 col-md-4 col-sm-12">
 
               <Card className='rounded shadow mt-3'>
-                <Card.Img variant="top" src="/images/card1.webp" />
+                <Card.Img variant="top" src="/images/card8.webp" />
                 <Card.Body className='text-center'>
                   <Card.Title>Rivana at The Valley </Card.Title>
                   <Card.Text>
@@ -244,7 +244,7 @@ export default function Home() {
             <div className="col-lg-4 col-md-4 col-sm-12">
 
               <Card className='rounded shadow mt-3'>
-                <Card.Img variant="top" src="/images/card1.webp" />
+                <Card.Img variant="top" src="/images/card9.webp" />
                 <Card.Body className='text-center'>
                   <Card.Title>Rivana at The Valley </Card.Title>
                   <Card.Text>
@@ -271,7 +271,7 @@ export default function Home() {
             <div className="col-lg-4 col-md-4 col-sm-12">
 
               <Card className='rounded shadow mt-3'>
-                <Card.Img variant="top" src="/images/card1.webp" />
+                <Card.Img variant="top" src="/images/card10.webp" />
                 <Card.Body className='text-center'>
                   <Card.Title>Rivana </Card.Title>
                   <Card.Text>
@@ -287,7 +287,7 @@ export default function Home() {
             <div className="col-lg-4 col-md-4 col-sm-12">
 
               <Card className='rounded shadow mt-3'>
-                <Card.Img variant="top" src="/images/card1.webp" />
+                <Card.Img variant="top" src="/images/card11.webp" />
                 <Card.Body className='text-center'>
                   <Card.Title>Rivana </Card.Title>
                   <Card.Text>
@@ -303,7 +303,7 @@ export default function Home() {
             <div className="col-lg-4 col-md-4 col-sm-12">
 
               <Card className='rounded shadow mt-3'>
-                <Card.Img variant="top" src="/images/card1.webp" />
+                <Card.Img variant="top" src="/images/card12.webp" />
                 <Card.Body className='text-center'>
                   <Card.Title>Rivana </Card.Title>
                   <Card.Text>
@@ -389,7 +389,7 @@ export default function Home() {
 
         </section>
 
-        <section className='container w-75'>
+        <section className=''>
           <div className="mt-5">
             <h2 className={styles.offPlanProjects}>OUR REAL ESTATE SERVICES</h2>
           </div>

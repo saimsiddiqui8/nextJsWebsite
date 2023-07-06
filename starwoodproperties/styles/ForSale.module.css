@@ -1,0 +1,55 @@
+.offPlanProjects {
+    font-size: 22px;
+    color: #09001F;
+    font-weight: bold;
+}
+#offPlanProjects {
+    font-size: 25px;
+    color: #09001F;
+    font-weight: 1000 !important;
+}
+.icon2{
+    padding-top: -5px !important;
+    margin-top: -1px !important;
+    color: #C4E8E9;
+}
+
+.icons{
+    padding-top: -5px !important;
+    margin-top: -1px !important;
+    font-weight: 900;
+    color: #C4E8E9;
+}
+.iconz{
+    padding-top: -5px !important;
+    margin-top: -1px !important;
+    font-weight: 900;
+}
+#button1{
+    position: relative;
+    transform: skew(-20deg);
+    transition: 0.5s;
+    cursor: pointer;
+    transform-origin: top left;
+    background-color: #C4E8E9;
+}
+#button2{
+    position: relative;
+    transform: skew(-20deg);
+    right: -8px;
+    transform-origin: top left;
+    background-color: #FF8F27;
+}
+#button1:hover {
+    /* Define the hover styles */
+    background-color: #000000;
+    color: #fff;
+  }
+.span {
+    transform: skew(20deg);  /* Apply opposite skew to the text */
+    display: inline-block; 
+    font-weight: 600;
+}
+.img{
+    width: 99% !important;
+}

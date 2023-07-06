@@ -7,7 +7,11 @@
   font-family: 'Montserrat', sans-serif;
 
 }
-
+.navbar-toggler-icon{
+  background-color: #ffffff !important;
+  border-radius: 5px;
+  padding: 15px 20px;
+}
 /* NAVBAR CSS */
 .navBar {
   background-color: #000 !important;
@@ -15,6 +19,10 @@
 
 .linkz {
   font-weight: 600;
+}
+
+p {
+  margin-bottom: 0rem !important;
 }
 
 .aboutImg1 {
@@ -399,7 +407,7 @@
 }
 
 .boxesHeading {
-  color: "#4EC0B0"!important;
+  color: "#4EC0B0" !important;
 }
 
 .bottomLeftText {
@@ -486,25 +494,53 @@
 }
 
 /* form  */
-#form{
+#form {
   background-color: #3E3E3E;
   border-radius: 5px;
   margin-left: 10rem !important;
 }
 
 @media only screen and (max-width: 898px) {
-   #form {
+  #form {
     margin-left: 8rem !important;
 
   }
 
 }
+
 @media only screen and (max-width: 767px) {
-   #form {
+  #form {
     margin-top: 50px;
     margin-left: 0rem !important;
     width: 100% !important;
 
   }
 
+}
+
+/* media query for home container and text  */
+@media only screen and (max-width: 1000px) {
+  #mainHomeWrapper {
+    width: 85% !important;
+  }
+
+}
+@media only screen and (max-width: 861px) {
+  #mainHomeWrapper {
+    width: 90% !important;
+  }
+
+}
+@media only screen and (max-width: 768px) {
+  #mainHomeWrapper {
+    width: 95% !important;
+  }
+  .container{
+    max-width: 700px !important;
+  }
+}
+@media only screen and (max-width: 748px) {
+  #mainHomeWrapper {
+    width: 95% !important;
+  }
 }
