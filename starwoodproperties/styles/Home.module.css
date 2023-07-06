@@ -1,0 +1,19 @@
+#hero {
+  background: url("../public/images/hero.webp");
+  /* padding-top: 18rem;
+  padding-bottom: 18rem; */
+}
+
+.logosImg {
+  width: 40px;
+}
+
+.offPlanProjects {
+  font-size: 22px;
+  color: #09001F;
+  
+  font-weight: bold;
+}
+.offPlanProjectsParagraph{
+  margin-bottom: 1rem;
+}
