@@ -1,14 +1,40 @@
+import { useEffect, useState } from 'react';
+import { collection, doc, getDocs } from "firebase/firestore";
+import { db } from '@/pages/firebase';
 import ShadedContainer from "@/components/ShadedContainer";
 import styles from '@/styles/ForSale.module.css';
 import { TbMathGreater } from "react-icons/tb"
 import { MdLocationPin } from "react-icons/md"
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { HiCube } from "react-icons/hi"
 import { MdCall } from "react-icons/md"
 import { FaBed } from "react-icons/fa"
-import { MdWhatsapp } from "react-icons/md"
-import { Col, Container, Row } from "react-bootstrap";
+import { MdWhatsapp } from "react-icons/md";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
+
 
 export default function propertiesForSale() {
+    const [renderData, setRenderData] = useState([]);
+
+    useEffect(() => {
+        loadData();
+    }, []);
+
+    const loadData = async () => {
+        try {
+            const querySnapshot = await getDocs(collection(db, "yourCollection"));
+            const data = querySnapshot.docs.map((doc) => doc.data());
+            setRenderData(data);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
+    const openMap = (location) => {
+        const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`;
+        window.open(mapUrl, "_blank");
+    };
     return (
         <>
             <ShadedContainer mainHeading="Properties For Sale" currentPage="Properties For Sale" />
@@ -60,33 +86,56 @@ export default function propertiesForSale() {
                 <h2 className={styles.offPlanProjects}>Search for Properties in Dubai for Sale</h2>
 
                 <Container>
-                    <Row className="justify-content-evenly">
-                        <Col lg={4} md={12} sm={12} className=" mt-5" >
-                            <img src="/images/list1.png" className={styles.img} />
-                        </Col>
-                        <Col lg={5} md={12} sm={12} className=" mt-5" >
-                            <h5 className={styles.offPlanProjects}>The Grove Dubai hills estate</h5>
-                            <h3 className="" id={styles.offPlanProjects}>AED 1300,000</h3>
-                            <div className="my-3">
-                                <p className={styles.offPlanProjectsParagraph}><FaBed className={styles.icon2} /> 2 bed &nbsp; &nbsp; &nbsp;<FaBed className={styles.icon2} /> 2 bed &nbsp; &nbsp; <HiCube className={styles.icon2} /> 1,219 Sq.Ft.</p>
-                            </div>
-                            <p className={styles.offPlanProjectsParagraph}>View Details &gt; </p>
-                            <div className="mt-1">
-                                <p className={styles.offPlanProjectsParagraph}> <MdLocationPin className={styles.icon2} /> Marina Pinnacle - Dubai Marina - Dubai</p>
-                            </div>
-                            <div className="mt-3 w-100 text-center overflow-hidden">
-                                <Row>
-                                    <Col lg={6} md={6} sm={6} className="col-6 py-3" id={styles.button1}>
-                                        <span className={styles.span}> <MdCall  className={styles.iconz} /> Call Now</span>
-                                    </Col>
-                                    <Col lg={6} md={6} sm={6} className="col-6 py-3" id={styles.button2}>
-                                        <span className={styles.span}> <MdWhatsapp /> Whatsapp</span>
-                                    </Col>
-                                </Row>
-
-                            </div>
-                        </Col>
-                    </Row>
+                    {renderData.map((data, index) => (
+                        <Row className="justify-content-evenly" id={index} key={data.id}>
+                            <Col lg={4} md={12} sm={12} className="mt-5" key={index}>
+                                {data.img  && Array.isArray(data.img) && data.img.length > 0 ? (
+                                    <Slider autoplay={true} autoplaySpeed={3500}>
+                                        {data.img.map((image, imageIndex) => (
+                                            <img key={imageIndex} src={image} className={styles.img} />
+                                        ))}
+                                    </Slider>
+                                ) : (
+                                    <div className="text-center">
+                                        <img src="/images/noImgAvailable.jpg" width="75%" className={styles.noImgAvailable} />
+                                    </div>
+                                )}
+                            </Col>
+                            <Col lg={5} md={12} sm={12} className="mt-5">
+                                <h5 className={styles.offPlanProjects}>{data.names}</h5>
+                                <h3 className="" id={styles.offPlanProjects}>AED {data.price}</h3>
+                                <div className="my-3">
+                                    <p className={styles.offPlanProjectsParagraph}>
+                                        <FaBed className={styles.icon2} /> {data.bed} bed &nbsp; &nbsp; &nbsp;
+                                        <FaBed className={styles.icon2} /> {data.bed} bed &nbsp; &nbsp;
+                                        <HiCube className={styles.icon2} /> {data.area}
+                                    </p>
+                                </div>
+                                <p className={styles.offPlanProjectsParagraph}>View Details &gt; </p>
+                                <div className="mt-1">
+                                    <p className={styles.offPlanProjectsParagraph}>
+                                        <a href="#" onClick={() => openMap(data.location)}>
+                                            <MdLocationPin className={styles.icon2} /> {data.location}
+                                        </a>
+                                    </p>
+                                </div>
+                                <div className="mt-3 w-100 text-center overflow-hidden">
+                                    <Row>
+                                        <Col lg={6} md={6} sm={6} className="col-6 py-3" id={styles.button1}>
+                                            <span className={styles.span}>
+                                                <MdCall className={styles.iconz} /> Call Now
+                                            </span>
+                                        </Col>
+                                        <Col lg={6} md={6} sm={6} className="col-6 py-3" id={styles.button2}>
+                                            <span className={styles.span}>
+                                                <MdWhatsapp /> Whatsapp
+                                            </span>
+                                        </Col>
+                                    </Row>
+                                </div>
+                            </Col>
+                        </Row>
+                    ))}
                 </Container>
             </section>
         </>
