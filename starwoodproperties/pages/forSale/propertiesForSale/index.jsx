@@ -87,9 +87,9 @@ export default function propertiesForSale() {
 
                 <Container>
                     {renderData.map((data, index) => (
-                        <Row className="justify-content-evenly" id={index} key={data.id}>
+                        <Row className="justify-content-evenly mt-5" id={index} key={data.id}>
                             <Col lg={4} md={12} sm={12} className="mt-5" key={index}>
-                                {data.img  && Array.isArray(data.img) && data.img.length > 0 ? (
+                                {data.img  && data.img.length > 0 ? (
                                     <Slider autoplay={true} autoplaySpeed={3500}>
                                         {data.img.map((image, imageIndex) => (
                                             <img key={imageIndex} src={image} className={styles.img} />
@@ -102,7 +102,7 @@ export default function propertiesForSale() {
                                 )}
                             </Col>
                             <Col lg={5} md={12} sm={12} className="mt-5">
-                                <h5 className={styles.offPlanProjects}>{data.names}</h5>
+                                <h5>{data.names}</h5>
                                 <h3 className="" id={styles.offPlanProjects}>AED {data.price}</h3>
                                 <div className="my-3">
                                     <p className={styles.offPlanProjectsParagraph}>
