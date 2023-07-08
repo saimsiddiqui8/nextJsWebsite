@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { collection, doc, getDocs } from "firebase/firestore";
-import { db } from '@/pages/firebase';
+import  db from '@/pages/api/firebase';
 import ShadedContainer from "@/components/ShadedContainer";
 import styles from '@/styles/ForSale.module.css';
 import { TbMathGreater } from "react-icons/tb"
