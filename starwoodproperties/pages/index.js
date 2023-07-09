@@ -7,6 +7,9 @@ import Form from 'react-bootstrap/Form';
 import Tabs from 'react-bootstrap/Tabs';
 import { TbMathGreater } from "react-icons/tb"
 import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,39 +36,55 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div id={styles.hero}>
-        <Container className='w-75 py-5'>
-          <Row className='py-5 mb-5'>
-            <Col lg={6} md={6} sm={12} >
-              <div>
-                <h3 className='text-white' style={{ fontWeight: 1000 }}>Best Real Estate Agency In Dubai</h3>
-              </div>
-            </Col>
-            <Col lg={6} md={6} sm={12} className='text-center'>
-              <Row className='pb-5 text-end'>
-                <Form className='w-75 px-4 opacity-75' id='form' onSubmit={handleSubmit}>
-                  <h3 className='text-center pt-4 pb-2 text-light fw-bold'>REGISTER YOUR INTEREST</h3>
-                  <Form.Group className="mb-3 pt-3" controlId="formBasicText">
-                    <Form.Control className="text-light input" name="name" required type="text" placeholder="Name" />
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control className="input text-light" name="email" required type="email" placeholder="Email" />
-                  </Form.Group>
-                  <Form.Group className="mb-2" controlId="formBasicText">
-                    <Form.Control className="input text-light" name="contact" type="text" placeholder="Contact number" required />
-                  </Form.Group>
-                  {/* <Form.Group className="mb-2">
+      <div className="slider-container">
+        <Carousel showThumbs={false} id="corousel" showStatus={false} infiniteLoop autoPlay>
+          <div>
+            <img src="/images/hero.webp" alt="Slider 1" />
+          </div>
+          <div>
+            <img src="/images/hero2.webp" alt="Slider 2" />
+          </div>
+          <div>
+            <img src="/images/hero3.webp" alt="Slider 3" />
+          </div>
+        </Carousel>
+        <div className="slider-content">
+          <div id={styles.hero}>
+            <Container className=' py-5'>
+              <Row className='py-5 mb-5'>
+                <Col lg={6} md={6} sm={12} >
+                  <div>
+                    <h3 className='text-white' id='hideTextOnMob' style={{ fontWeight: 1000 }}>Best Real Estate Agency In Dubai</h3>
+                  </div>
+                </Col>
+                <Col lg={6} md={6} sm={12} className='text-center'>
+                  <Row className='pb-5 text-end'>
+                    <Form className=' px-4 opacity-75' id='form' onSubmit={handleSubmit}>
+                      <h3 className='text-center pt-4 pb-2 text-light fw-bold' id='registerYourInterest'>REGISTER YOUR INTEREST</h3>
+                      <Form.Group className="mb-3 pt-3" controlId="formBasicText">
+                        <Form.Control className="formControl text-light input" name="name" required type="text" placeholder="Name" />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Control className="input formControl text-light" name="email" required type="email" placeholder="Email" />
+                      </Form.Group>
+                      <Form.Group className="mb-2" controlId="formBasicText">
+                        <Form.Control className="input formControl text-light" name="contact" type="text" placeholder="Contact number" required />
+                      </Form.Group>
+                      {/* <Form.Group className="mb-2">
                       <Form.Control className="input text-light" name="message" as="textarea" placeholder="Message" required rows={4} />
                     </Form.Group> */}
-                  <Button style={{ fontWeight: "600" }} value="send" type="submit" className="mb-4 w-100 bg-dark  text-light hbtn2 hb-fill-right2">
-                    Submit
-                  </Button>
-                </Form>
+                      <Button style={{ fontWeight: "600" }} value="send" type="submit" id='formBtn' className="mb-4 w-100 bg-dark  text-light hbtn2 hb-fill-right2">
+                        Submit
+                      </Button>
+                    </Form>
+                  </Row>
+                </Col>
               </Row>
-            </Col>
-          </Row>
-        </Container>
+            </Container>
+          </div>
+        </div>
       </div>
+
       <main id='mainHomeWrapper' className='container w-75'>
         <section className=' text-white text-center'>
           <div className='row overflow-hidden'>
@@ -276,7 +295,7 @@ export default function Home() {
                 <Card.Body className='text-center'>
                   <Card.Title>Rivana </Card.Title>
                   <Card.Text>
-                    
+
                     <div className='d-flex text-center justify-content-evenly borderTop'>
                       <div>For Sale</div>
                       <div>For Rent</div>
@@ -293,7 +312,7 @@ export default function Home() {
                 <Card.Body className='text-center'>
                   <Card.Title>Rivana </Card.Title>
                   <Card.Text>
-                    
+
                     <div className='d-flex text-center justify-content-evenly borderTop'>
                       <div>For Sale</div>
                       <div>For Rent</div>
@@ -310,7 +329,7 @@ export default function Home() {
                 <Card.Body className='text-center'>
                   <Card.Title>Rivana </Card.Title>
                   <Card.Text>
-                    
+
                     <div className='d-flex text-center justify-content-evenly borderTop'>
                       <div className='borderLeft'>For Sale</div>
                       <div className='borderRight'>For Rent</div>

@@ -114,7 +114,7 @@ export default function Admin() {
                 }
 
                 // Add the form data to db
-                await addDoc(collection(db, 'addData'), {
+                await addDoc(collection(db, 'propertyForSale'), {
                     names,
                     price,
                     bed,
@@ -161,7 +161,7 @@ export default function Admin() {
                         <Form.Group className="mb-3" controlId="price">
                             <Form.Label>Price</Form.Label>
                             <Form.Control
-                                type="number"
+                                type="text"
                                 value={price}
                                 onChange={(e) => setPrice(e.target.value)}
                                 required
@@ -269,7 +269,7 @@ export default function Admin() {
 
         const loadData = async () => {
             try {
-                const querySnapshot = await getDocs(collection(db, 'yourCollection'));
+                const querySnapshot = await getDocs(collection(db, 'propertyForSale'));
                 const data = querySnapshot.docs.map((doc) => doc.data());
                 setRenderData(data);
                 setTimeout(() => {
@@ -286,7 +286,7 @@ export default function Admin() {
                 setSelectedProductId(productId);
 
                 // Delete product from Firestore
-                await deleteDoc(doc(db, 'yourCollection', productId));
+                await deleteDoc(doc(db, 'propertyForSale', productId));
 
                 // Delete images from storage bucket
                 const storage = getStorage();
@@ -321,9 +321,9 @@ export default function Admin() {
                             {renderData.map((data, index) => (
                                 <Row className="justify-content-evenly mt-5" id={index} key={data.id}>
                                     <Col lg={4} md={12} sm={12} className="mt-5" key={index}>
-                                        {data.img && data.img.length > 0 ? (
+                                        {data.imageUrls && data.imageUrls.length > 0 ? (
                                             <Slider autoplay={true} autoplaySpeed={3500}>
-                                                {data.img.map((image, imageIndex) => (
+                                                {data.imageUrls.map((image, imageIndex) => (
                                                     <img key={imageIndex} src={image} className={styles.img} />
                                                 ))}
                                             </Slider>
@@ -367,7 +367,7 @@ export default function Admin() {
                                         <div className="mt-3 w-100 text-center overflow-hidden">
                                             <Row>
                                                 <Col lg={6} md={6} sm={6} className="col-6 py-3" id={styles.button1}>
-                                                    <span className={styles.span} onClick={() => handleDeleteProduct(data.id, data.img)}>
+                                                    <span className={styles.span} onClick={() => handleDeleteProduct(data.id, data.imageUrls)}>
                                                         {isDeleting && selectedProductId === data.id ? (
                                                             <Spinner animation="border" role="status" size="sm">
                                                                 <span className="visually-hidden">Deleting...</span>
@@ -417,12 +417,13 @@ export default function Admin() {
         const handleCategoryClick = (category) => {
             setSelectedCategory(category);
             setAddProduct(false);
+            setShowAllCategories(false);
         };
 
         const handleSeeAllProducts = () => {
             setShowAllCategories(true);
             setSelectedCategory('');
-            setAddProduct(false); // Set addProduct to false when "See All Products" is clicked
+            setAddProduct(false);
         };
 
         return (
@@ -432,7 +433,8 @@ export default function Admin() {
                         Logout
                     </Button>
                 </div>
-                {!showAllCategories && !addProduct && ( // Render the Add Product button only if showAllCategories and addProduct are false
+
+                {!showAllCategories && !addProduct && !selectedCategory && (
                     <div className="container w-50 text-center">
                         <Button
                             className="w-100 py-5 mt-3 bg-dark text-white"
@@ -444,7 +446,23 @@ export default function Admin() {
                         </Button>
                     </div>
                 )}
-                {showAllCategories ? (
+
+                {!showAllCategories && !addProduct && !selectedCategory && (
+                    <div className="text-center container w-50">
+                        <Button
+                            className="w-100 py-5 mt-3 bg-dark text-white"
+                            onClick={handleSeeAllProducts}
+                            variant=""
+                            type="submit"
+                        >
+                            See All Products
+                        </Button>
+                    </div>
+                )}
+
+                {addProduct && <AdminAddProduct />}
+
+                {showAllCategories && !addProduct && !selectedCategory && (
                     <div className="grid-container container w-75 text-center">
                         <Button
                             className="category-btn bg-dark text-white w-100 my-3 p-4"
@@ -489,18 +507,8 @@ export default function Admin() {
                             Ballroom
                         </Button>
                     </div>
-                ) : (
-                    <div className="text-center container w-50">
-                        <Button
-                            className=" w-100 py-5 mt-3 bg-dark text-white"
-                            onClick={handleSeeAllProducts}
-                            variant=""
-                            type="submit"
-                        >
-                            See All Products
-                        </Button>
-                    </div>
-                )}
+                        )}
+               
                 {selectedCategory && (
                     <AllProducts selectedCategory={selectedCategory} />
                 )}

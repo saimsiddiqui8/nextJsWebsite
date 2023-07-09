@@ -1,11 +1,11 @@
-#hero {
+/* #hero {
   background: url("../public/images/hero.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   max-width: 100% !important;
   height: auto !important;
-}
+} */
 
 .logosImg {
   width: 40px;
@@ -17,6 +17,7 @@
 
   font-weight: bold;
 }
+
 
 .offPlanProjectsParagraph {
   margin-bottom: 1rem;

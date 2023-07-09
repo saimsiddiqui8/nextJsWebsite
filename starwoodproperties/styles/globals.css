@@ -7,6 +7,7 @@
   font-family: 'Montserrat', sans-serif;
 
 }
+
 a {
   color: inherit;
   text-decoration: none;
@@ -15,18 +16,22 @@ a {
 a:hover {
   text-decoration: none;
 }
-.navbar-toggler-icon{
+
+.navbar-toggler-icon {
   background-color: #ffffff !important;
   border-radius: 5px;
   padding: 15px 20px;
 }
+
 /* NAVBAR CSS */
 .navBar {
   background-color: #000 !important;
 }
-#adminContainer{
+
+#adminContainer {
   background-color: #DDDDDD;
 }
+
 .linkz {
   font-weight: 600;
 }
@@ -102,7 +107,8 @@ p {
   float: left;
   z-index: 99;
 }
-#cardImg{
+
+#cardImg {
   width: 50%;
 }
 
@@ -120,6 +126,25 @@ p {
   cursor: -moz-grab;
   cursor: -webkit-grab;
 }
+
+.slider-container {
+  position: relative;
+}
+
+.carousel .slide img {
+  width: 100%;
+  /* height: auto; */
+}
+
+.slider-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-align: center;
+}
+
 
 #testimonial4 .carousel-inner:active {
   cursor: -moz-grabbing;
@@ -396,6 +421,132 @@ p {
   }
 }
 
+@media only screen and (max-width: 1105px) {
+  .slider-content {
+    position: absolute;
+    top: 60% !important;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 915px) {
+  .slider-content {
+    position: absolute;
+    top: 65% !important;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    text-align: center;
+  }
+
+  #form {
+    height: 360px !important;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #registerYourInterest {
+    font-size: 20px !important;
+  }
+
+  #form {
+    height: 300px !important;
+  }
+
+  .formControl {
+    font-size: 12px !important;
+  }
+}
+
+@media only screen and (max-width: 862px) {
+  #registerYourInterest {
+    font-size: 15px !important;
+  }
+
+  #form {
+    height: 300px !important;
+  }
+
+  .formControl {
+    font-size: 12px !important;
+  }
+}
+
+@media only screen and (max-width: 765px) {
+  #hideTextOnMob {
+    display: none;
+  }
+  #registerYourInterest {
+    font-size: 14px !important;
+  }
+
+  #form {
+    height: 265px !important;
+    width: 100% !important;
+  }
+
+  .formControl {
+    font-size: 10px !important;
+  }
+}
+@media only screen and (max-width: 743px) {
+  #hideTextOnMob {
+    display: none;
+  }
+  #registerYourInterest {
+    display: none;
+  }
+
+  #form {
+    height: 205px !important;
+    width: 100% !important;
+  }
+
+  .formControl {
+    font-size: 10px !important;
+  }
+}
+@media only screen and (max-width: 575px) {
+  #hideTextOnMob {
+    display: none;
+  }
+  #registerYourInterest {
+    display: none;
+  }
+
+  #form {
+    height: 180px !important;
+    width: 100% !important;
+  }
+
+  .formControl {
+    font-size: 8px !important;
+  }
+}
+@media only screen and (max-width: 485px) {
+  #hideTextOnMob {
+    display: none;
+  }
+  #registerYourInterest {
+    display: none;
+  }
+
+  #form {
+    height: 170px !important;
+    width: 100% !important;
+  }
+
+  .formControl {
+    font-size: 7px !important;
+  }
+  #formBtn{
+    font-size: 15px !important;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   #footerLogoText {
     margin-left: 2rem !important;
@@ -538,20 +689,24 @@ p {
   }
 
 }
+
 @media only screen and (max-width: 861px) {
   #mainHomeWrapper {
     width: 90% !important;
   }
 
 }
+
 @media only screen and (max-width: 768px) {
   #mainHomeWrapper {
     width: 95% !important;
   }
-  .container{
+
+  .container {
     max-width: 700px !important;
   }
 }
+
 @media only screen and (max-width: 748px) {
   #mainHomeWrapper {
     width: 95% !important;

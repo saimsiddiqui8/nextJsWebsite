@@ -25,7 +25,7 @@ export default function propertiesForSale() {
 
     const loadData = async () => {
         try {
-            const querySnapshot = await getDocs(collection(db, "yourCollection"));
+            const querySnapshot = await getDocs(collection(db, "propertyForSale"));
             const data = querySnapshot.docs.map((doc) => doc.data());
             setRenderData(data);
         } catch (error) {
@@ -90,9 +90,9 @@ export default function propertiesForSale() {
                     {renderData.map((data, index) => (
                         <Row className="justify-content-evenly mt-5" id={index} key={data.id}>
                             <Col lg={4} md={12} sm={12} className="mt-5" key={index}>
-                                {data.img && data.img.length > 0 ? (
+                                {data.imageUrls && data.imageUrls.length > 0 ? (
                                     <Slider autoplay={true} autoplaySpeed={3500}>
-                                        {data.img.map((image, imageIndex) => (
+                                        {data.imageUrls.map((image, imageIndex) => (
                                             <img key={imageIndex} src={image} className={styles.img} />
                                         ))}
                                     </Slider>
