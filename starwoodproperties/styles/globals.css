@@ -24,7 +24,9 @@ a:hover {
 .navBar {
   background-color: #000 !important;
 }
-
+#adminContainer{
+  background-color: #DDDDDD;
+}
 .linkz {
   font-weight: 600;
 }
@@ -99,6 +101,9 @@ p {
   height: 100px;
   float: left;
   z-index: 99;
+}
+#cardImg{
+  width: 50%;
 }
 
 .testimonial {

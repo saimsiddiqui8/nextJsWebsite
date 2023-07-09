@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { collection, doc, getDocs } from "firebase/firestore";
-import  db from '@/pages/api/firebase';
+import { collection,  getDocs } from "firebase/firestore";
+import db from '@/pages/api/firebase';
 import ShadedContainer from "@/components/ShadedContainer";
 import styles from '@/styles/ForSale.module.css';
 import { TbMathGreater } from "react-icons/tb"
@@ -13,6 +13,7 @@ import { MdCall } from "react-icons/md"
 import { FaBed } from "react-icons/fa"
 import { MdWhatsapp } from "react-icons/md";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
+import Link from 'next/link';
 
 
 export default function propertiesForSale() {
@@ -89,7 +90,7 @@ export default function propertiesForSale() {
                     {renderData.map((data, index) => (
                         <Row className="justify-content-evenly mt-5" id={index} key={data.id}>
                             <Col lg={4} md={12} sm={12} className="mt-5" key={index}>
-                                {data.img  && data.img.length > 0 ? (
+                                {data.img && data.img.length > 0 ? (
                                     <Slider autoplay={true} autoplaySpeed={3500}>
                                         {data.img.map((image, imageIndex) => (
                                             <img key={imageIndex} src={image} className={styles.img} />
@@ -102,17 +103,26 @@ export default function propertiesForSale() {
                                 )}
                             </Col>
                             <Col lg={5} md={12} sm={12} className="mt-5">
-                                <h5>{data.names}</h5>
+                                <p>{data.names}</p>
                                 <h3 className="" id={styles.offPlanProjects}>AED {data.price}</h3>
-                                <div className="my-3">
-                                    <p className={styles.offPlanProjectsParagraph}>
+                                <div className="my-1">
+                                    <p className={styles.sizes}>
                                         <FaBed className={styles.icon2} /> {data.bed} bed &nbsp; &nbsp; &nbsp;
                                         <FaBed className={styles.icon2} /> {data.bed} bed &nbsp; &nbsp;
                                         <HiCube className={styles.icon2} /> {data.area}
                                     </p>
                                 </div>
-                                <p className={styles.offPlanProjectsParagraph}>View Details &gt; </p>
-                                <div className="mt-1">
+                                <p className='mb-2 fw-bold'>{data.cartDescription}</p>
+                                <p className={styles.viewDetails}>
+                                    <Link href={{
+                                        pathname: '/forSale/listDetails',
+                                        query: { data: JSON.stringify(data) }
+                                    }}>
+                                        <p>View Details &gt;</p>
+                                    </Link>
+                                </p>
+                                <hr className='my-1 mt-1' />
+                                <div className="">
                                     <p className={styles.offPlanProjectsParagraph}>
                                         <a href="#" onClick={() => openMap(data.location)}>
                                             <MdLocationPin className={styles.icon2} /> {data.location}
